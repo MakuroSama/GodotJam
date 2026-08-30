@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://crbk7texpi3y5"]
 
-[ext_resource type="Texture2D" uid="uid://cwfmjuhqu56f0" path="res://Sprites/player.png" id="1_8etcy"]
+[ext_resource type="PackedScene" uid="uid://bh6cysl4rkic7" path="res://Scenes/Platform.tscn" id="1_frf35"]
+[ext_resource type="PackedScene" uid="uid://bfk68clia1u3t" path="res://Scenes/Player.tscn" id="2_yprpe"]
 
 [node name="Node2D" type="Node2D" unique_id=1247356014]
 
-[node name="Player" type="Sprite2D" parent="." unique_id=1731990358]
-position = Vector2(310, 172)
-texture = ExtResource("1_8etcy")
+[node name="Platform" parent="." unique_id=1852310567 instance=ExtResource("1_frf35")]
+position = Vector2(416, 255)
+
+[node name="CharacterBody2D" parent="Platform" unique_id=2074006273 instance=ExtResource("2_yprpe")]
+position = Vector2(4, -76)

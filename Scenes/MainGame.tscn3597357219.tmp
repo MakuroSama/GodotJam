@@ -19,7 +19,6 @@ position = Vector2(751.00006, 358)
 scale = Vector2(5, 5)
 texture = ExtResource("3_yprpe")
 script = ExtResource("4_ybmw1")
-max_speed = 1200.0
 
 [node name="pointer" type="Sprite2D" parent="Bar" unique_id=221232969]
 texture = ExtResource("5_321ql")

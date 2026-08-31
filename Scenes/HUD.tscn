@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dpdf6cymdankl"]
+
+[ext_resource type="Texture2D" uid="uid://cl3mnbysx8y2r" path="res://Sprites/bar.png" id="1_psnte"]
+[ext_resource type="Script" uid="uid://b2puy2ia2qqnc" path="res://Scripts/bar.gd" id="2_s3jbq"]
+[ext_resource type="Texture2D" uid="uid://5m85qcj8s7qq" path="res://Sprites/pointer.png" id="3_c3eba"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=58668596]
+
+[node name="Bar" type="Sprite2D" parent="." unique_id=2075571743]
+position = Vector2(319.00003, 126.000046)
+scale = Vector2(5, 5)
+texture = ExtResource("1_psnte")
+script = ExtResource("2_s3jbq")
+max_speed = 1200.0
+
+[node name="pointer" type="Sprite2D" parent="Bar" unique_id=292692249]
+texture = ExtResource("3_c3eba")
+offset = Vector2(0, 16)

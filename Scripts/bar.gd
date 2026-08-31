@@ -17,7 +17,7 @@ func _ready() -> void:
 	$pointer.hide()
 	pass # Replace with function body.
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("shoot") and $"../CharacterBody2D".is_on_floor():
+	if Input.is_action_just_pressed("shoot") and $"../../CharacterBody2D".is_on_floor():
 		$pointer.show()
 		is_charging = true
 		charge_time = 0.0

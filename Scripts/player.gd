@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+signal cameraShake(trauma)
 var direction
 @export var FRICTION_LERP_WEIGHT := 30
 # --- fall damage ---
@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	# landed this frame?
 	if is_on_floor() and not was_on_floor:
+		cameraShake.emit(was_falling_speed)
 		_apply_fall_damage(was_falling_speed)
 
 	was_on_floor = is_on_floor()

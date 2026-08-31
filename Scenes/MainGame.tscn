@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bfk68clia1u3t" path="res://Scenes/Player.tscn" id="2_yprpe"]
 [ext_resource type="PackedScene" uid="uid://dpdf6cymdankl" path="res://Scenes/HUD.tscn" id="5_321ql"]
 [ext_resource type="Texture2D" uid="uid://dwwenuf2c4rjx" path="res://Sprites/floorTileMap.png" id="6_d4f28"]
+[ext_resource type="PackedScene" uid="uid://s53tmxo8ycp6" path="res://Scenes/GoalGoat.tscn" id="6_iuea6"]
 [ext_resource type="Script" uid="uid://bfvxqjwoe5xx" path="res://Scripts/camera_2d.gd" id="7_iuea6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iuea6"]
@@ -51,6 +52,9 @@ trauma_decay = 1.0
 max_offset = 13.0
 
 [node name="CanvasLayer" parent="." unique_id=58668596 instance=ExtResource("5_321ql")]
+
+[node name="Goat" parent="." unique_id=1717682702 instance=ExtResource("6_iuea6")]
+position = Vector2(484, 205)
 
 [connection signal="cameraShake" from="CharacterBody2D" to="Camera2D" method="_on_character_body_2d_camera_shake"]
 [connection signal="died" from="CharacterBody2D" to="CanvasLayer" method="_on_character_body_2d_died"]

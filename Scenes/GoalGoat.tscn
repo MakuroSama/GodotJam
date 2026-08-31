@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://s53tmxo8ycp6"]
+
+[ext_resource type="Texture2D" uid="uid://gkg58oah04jc" path="res://Sprites/goat.png" id="1_1dfoa"]
+[ext_resource type="Script" uid="uid://cuteupxahtcr5" path="res://Scenes/goal_goat.gd" id="1_76do3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_503qj"]
+size = Vector2(54, 40)
+
+[node name="Goat" type="RigidBody2D" unique_id=1717682702]
+script = ExtResource("1_76do3")
+metadata/goal = "goal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1372470078]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_503qj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1508175810]
+texture = ExtResource("1_1dfoa")

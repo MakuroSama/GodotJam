@@ -51,6 +51,10 @@ func _take_damage(amount: float) -> void:
 		_die()
 
 func _die() -> void:
+	set_process_input(false)
+	set_process_unhandled_input(false)
+	set_physics_process(false)  # if movement happens in _physics_process
+	
 	died.emit()
 	$GPUParticles2D.splatter(256)
 	print("Player died")

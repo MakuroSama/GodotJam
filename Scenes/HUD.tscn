@@ -17,7 +17,6 @@ position = Vector2(736, 363)
 scale = Vector2(5, 5)
 texture = ExtResource("1_psnte")
 script = ExtResource("2_s3jbq")
-maxBullets = 1
 max_speed = 1200.0
 
 [node name="pointer" type="Sprite2D" parent="ShootingController" unique_id=292692249]
@@ -38,7 +37,7 @@ offset_right = 854.0
 offset_bottom = 216.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
-text = "球なくなった"
+text = "GAMEOVER"
 horizontal_alignment = 1
 
 [node name="BulletPic" type="Sprite2D" parent="." unique_id=1570169603]

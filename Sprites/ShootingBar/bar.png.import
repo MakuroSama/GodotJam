@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5m85qcj8s7qq"
-path="res://.godot/imported/pointer.png-04f363a66441aac9954acac95691455b.ctex"
+uid="uid://cl3mnbysx8y2r"
+path="res://.godot/imported/bar.png-989d4a812c4980433b4e2be8362f0896.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/pointer.png"
-dest_files=["res://.godot/imported/pointer.png-04f363a66441aac9954acac95691455b.ctex"]
+source_file="res://Sprites/ShootingBar/bar.png"
+dest_files=["res://.godot/imported/bar.png-989d4a812c4980433b4e2be8362f0896.ctex"]
 
 [params]
 

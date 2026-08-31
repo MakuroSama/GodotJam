@@ -3,6 +3,7 @@ signal cameraShake(trauma)
 signal shootRequestAccept
 signal died
 signal takeDamage(damage)
+signal win
 var direction
 @export var FRICTION_LERP_WEIGHT := 30
 # --- fall damage ---
@@ -69,6 +70,19 @@ func _on_canvas_layer_shoot_request() -> void:
 
 
 func _on_canvas_layer_shoot(speed: Variant) -> void:
+	var space_state = get_world_2d().direct_space_state
+	# use global coordinates, not local to node
+	var query = PhysicsRayQueryParameters2D.create(global_position,
+		global_position + direction.normalized() * 2000)
+	query.exclude = [self]
+
+	var result = space_state.intersect_ray(query)
+	print("Ray result: ", result)
+
+	if not result.is_empty() and result.collider.is_in_group("goal"):
+		print_debug("Won")
+		win.emit()
+		
 	velocity -= direction.normalized()*speed
 
 

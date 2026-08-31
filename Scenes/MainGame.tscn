@@ -2,9 +2,36 @@
 
 [ext_resource type="PackedScene" uid="uid://bh6cysl4rkic7" path="res://Scenes/Platform.tscn" id="1_frf35"]
 [ext_resource type="PackedScene" uid="uid://bfk68clia1u3t" path="res://Scenes/Player.tscn" id="2_yprpe"]
-[ext_resource type="Texture2D" uid="uid://cl3mnbysx8y2r" path="res://Sprites/bar.png" id="3_yprpe"]
-[ext_resource type="Script" uid="uid://b2puy2ia2qqnc" path="res://Scripts/bar.gd" id="4_ybmw1"]
-[ext_resource type="Texture2D" uid="uid://5m85qcj8s7qq" path="res://Sprites/pointer.png" id="5_321ql"]
+[ext_resource type="PackedScene" uid="uid://dpdf6cymdankl" path="res://Scenes/HUD.tscn" id="5_321ql"]
+[ext_resource type="Texture2D" uid="uid://dwwenuf2c4rjx" path="res://Sprites/floorTileMap.png" id="6_d4f28"]
+[ext_resource type="Script" uid="uid://bfvxqjwoe5xx" path="res://Scripts/camera_2d.gd" id="7_iuea6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iuea6"]
+texture = ExtResource("6_d4f28")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_503qj"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_iuea6")
 
 [node name="Node2D" type="Node2D" unique_id=1247356014]
 
@@ -14,15 +41,21 @@ position = Vector2(420, 179)
 [node name="Platform" parent="." unique_id=1852310567 instance=ExtResource("1_frf35")]
 position = Vector2(416, 255)
 
-[node name="Bar" type="Sprite2D" parent="." unique_id=1752578416]
-position = Vector2(751.00006, 358)
-scale = Vector2(5, 5)
-texture = ExtResource("3_yprpe")
-script = ExtResource("4_ybmw1")
-max_speed = 1200.0
+[node name="Map" type="TileMapLayer" parent="." unique_id=1371952490]
+tile_set = SubResource("TileSet_503qj")
 
-[node name="pointer" type="Sprite2D" parent="Bar" unique_id=221232969]
-texture = ExtResource("5_321ql")
-offset = Vector2(0, 16)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=548982376 node_paths=PackedStringArray("target")]
+script = ExtResource("7_iuea6")
+target = NodePath("../CharacterBody2D")
+trauma_decay = 1.0
+max_offset = 13.0
 
-[connection signal="shoot" from="Bar" to="CharacterBody2D" method="_on_bar_shoot"]
+[node name="CanvasLayer" parent="." unique_id=58668596 instance=ExtResource("5_321ql")]
+
+[connection signal="cameraShake" from="CharacterBody2D" to="Camera2D" method="_on_character_body_2d_camera_shake"]
+[connection signal="died" from="CharacterBody2D" to="CanvasLayer" method="_on_character_body_2d_died"]
+[connection signal="shootRequestAccept" from="CharacterBody2D" to="CanvasLayer" method="_on_character_body_2d_shoot_request_accept"]
+[connection signal="takeDamage" from="CharacterBody2D" to="CanvasLayer" method="_on_character_body_2d_take_damage"]
+[connection signal="outOfBullets" from="CanvasLayer" to="CharacterBody2D" method="_on_canvas_layer_out_of_bullets"]
+[connection signal="shoot" from="CanvasLayer" to="CharacterBody2D" method="_on_canvas_layer_shoot"]
+[connection signal="shootRequest" from="CanvasLayer" to="CharacterBody2D" method="_on_canvas_layer_shoot_request"]

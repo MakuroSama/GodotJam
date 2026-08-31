@@ -1,5 +1,8 @@
 extends CharacterBody2D
 signal cameraShake(trauma)
+signal shootRequestAccept
+signal died
+signal takeDamage(damage)
 var direction
 @export var FRICTION_LERP_WEIGHT := 30
 # --- fall damage ---
@@ -39,6 +42,8 @@ func _apply_fall_damage(fall_speed: float) -> void:
 	var damage = ratio * fall_damage_max
 	_take_damage(damage)
 func _take_damage(amount: float) -> void:
+	takeDamage.emit(amount)
+	$GPUParticles2D.splatter(amount)
 	health -= amount
 	health = max(health, 0.0)
 	print("Took ", amount, " fall damage. Health: ", health)
@@ -46,9 +51,23 @@ func _take_damage(amount: float) -> void:
 		_die()
 
 func _die() -> void:
+	died.emit()
+	$GPUParticles2D.splatter(256)
 	print("Player died")
+	$AnimatedSprite2D.hide()
+	$Gun.hide()
 	# queue_free(), reload scene, play death animation, etc.
-func _on_bar_shoot(strength: Variant) -> void:
-	print_debug(strength)
-	velocity -= direction.normalized()*strength
+
+
+func _on_canvas_layer_shoot_request() -> void:
+	if is_on_floor():
+		shootRequestAccept.emit()
+
+
+func _on_canvas_layer_shoot(speed: Variant) -> void:
+	velocity -= direction.normalized()*speed
+
+
+func _on_canvas_layer_out_of_bullets() -> void:
+	_die()
 	pass # Replace with function body.

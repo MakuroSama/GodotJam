@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://fw3r0sowgfol" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://lmd6gnbimw0c" path="res://Sprites/player.png" id="1_rpqav"]
+[ext_resource type="Texture2D" uid="uid://btxy1qe8jegt4" path="res://Sprites/bloodSplatterParticle.png" id="3_gntrk"]
+[ext_resource type="Script" uid="uid://cbn4u0lk6i16p" path="res://Scenes/gpu_particles_2d.gd" id="4_dewec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afvsk"]
 size = Vector2(16, 62)
@@ -34,3 +36,12 @@ sprite_frames = SubResource("SpriteFrames_503qj")
 rotation = -0.24958208
 texture = SubResource("CompressedTexture2D_gntrk")
 offset = Vector2(20, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1079847308]
+emitting = false
+amount = 256
+texture = ExtResource("3_gntrk")
+one_shot = true
+explosiveness = 0.65
+randomness = 0.57
+script = ExtResource("4_dewec")

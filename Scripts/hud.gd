@@ -5,6 +5,7 @@ signal outOfBullets
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$GameOverText.hide()
+	$ButtonRetry.hide()
 	$BulletCountText.text = "x" + str($ShootingController.currentBullet)
 	$HPBar.value = $HPBar.max_value
 
@@ -24,8 +25,14 @@ func _on_character_body_2d_shoot_request_accept() -> void:
 
 func _on_character_body_2d_died() -> void:
 	$GameOverText.show()
+	$ButtonRetry.show()
 	pass # Replace with function body.
 
 func _on_character_body_2d_take_damage(damage: Variant) -> void:
 	$HPBar.value -= damage
+	pass # Replace with function body.
+
+# Reload the scene when the retry button is pressed.
+func _on_button_retry_pressed() -> void:
+	get_tree().reload_current_scene()
 	pass # Replace with function body.

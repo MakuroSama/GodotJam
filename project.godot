@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GodotJam"
-run/main_scene="uid://crbk7texpi3y5"
+run/main_scene="uid://bko22bx08c54f"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

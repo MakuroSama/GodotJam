@@ -17,6 +17,7 @@ position = Vector2(1153, 590)
 scale = Vector2(6, 6)
 texture = ExtResource("1_psnte")
 script = ExtResource("2_s3jbq")
+max_charge_time = 0.7
 max_speed = 1200.0
 
 [node name="pointer" type="Sprite2D" parent="ShootingController" unique_id=292692249]

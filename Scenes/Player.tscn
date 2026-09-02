@@ -22,6 +22,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=2074006273]
 script = ExtResource("1_kyqiw")
+fall_damage_min_speed = 700.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=552112078]
 position = Vector2(0, 1)

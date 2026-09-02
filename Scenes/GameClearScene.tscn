@@ -27,30 +27,31 @@ text = "GAME CLEAR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonRetry" type="Button" parent="." unique_id=810652963]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1891960096]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.0
+offset_left = -41.5
 offset_top = 60.0
-offset_right = 98.0
-offset_bottom = 105.0
+offset_right = 41.5
+offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
+theme_override_constants/separation = 30
+
+[node name="ButtonRetry" type="Button" parent="VBoxContainer" unique_id=810652963]
+layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "RETRY"
 
-[node name="ButtonTitle" type="Button" parent="." unique_id=1655554458]
-layout_mode = 0
-offset_left = 325.0
-offset_top = 375.0
-offset_right = 525.0
-offset_bottom = 420.0
+[node name="ButtonTitle" type="Button" parent="VBoxContainer" unique_id=1655554458]
+layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "TITLE"
 
-[connection signal="pressed" from="ButtonRetry" to="." method="_on_button_retry_pressed"]
-[connection signal="pressed" from="ButtonTitle" to="." method="_on_button_title_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonRetry" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonTitle" to="." method="_on_button_title_pressed"]

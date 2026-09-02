@@ -35,12 +35,13 @@ func _physics_process(delta: float) -> void:
 func _apply_fall_damage(fall_speed: float) -> void:
 	if fall_speed < fall_damage_min_speed:
 		return  # landed softly, no damage
-
+	print("fallSpeed", fall_speed)
 	var ratio = clamp(
 		(fall_speed - fall_damage_min_speed) / (fall_damage_max_speed - fall_damage_min_speed),
 		0.0, 1.0
 	)
 	var damage = ratio * fall_damage_max
+	print(fall_damage_max,fall_damage_min_speed)
 	_take_damage(damage)
 func _take_damage(amount: float) -> void:
 	takeDamage.emit(amount)

@@ -80,6 +80,7 @@ func _on_canvas_layer_shoot(speed: Variant) -> void:
 	print("Ray result: ", result)
 
 	if not result.is_empty() and result.collider.is_in_group("goal"):
+		get_tree().change_scene_to_file("res://Scenes/GameClearScene.tscn")
 		print_debug("Won")
 		win.emit()
 		

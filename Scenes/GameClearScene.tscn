@@ -41,6 +41,7 @@ offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
 theme_override_constants/separation = 30
 
 [node name="ButtonRetry" type="Button" parent="VBoxContainer" unique_id=810652963]

@@ -32,7 +32,6 @@ sprite_frames = SubResource("SpriteFrames_503qj")
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=920206429]
 z_index = 1
-rotation = -0.24958208
 texture = ExtResource("3_5ixxa")
 offset = Vector2(20, 0)
 

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ckdw7u25aglqf" path="res://Sprites/standmap1.png" id="5_kvfik"]
 [ext_resource type="Texture2D" uid="uid://dwwenuf2c4rjx" path="res://Sprites/floorTileMap.png" id="6_d4f28"]
 [ext_resource type="PackedScene" uid="uid://s53tmxo8ycp6" path="res://Scenes/GoalGoat.tscn" id="6_iuea6"]
+[ext_resource type="Texture2D" uid="uid://b1ym7wsqae2ip" path="res://Sprites/22832366.jpg" id="6_kvfik"]
 [ext_resource type="Script" uid="uid://bfvxqjwoe5xx" path="res://Scripts/camera_2d.gd" id="7_iuea6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iuea6"]
@@ -65,6 +66,12 @@ script = ExtResource("7_iuea6")
 target = NodePath("../CharacterBody2D")
 trauma_decay = 1.0
 max_offset = 13.0
+
+[node name="Background" type="Sprite2D" parent="Camera2D" unique_id=1148578441]
+z_index = -4
+position = Vector2(-4.000003, -46.249977)
+scale = Vector2(0.8012499, 0.8012499)
+texture = ExtResource("6_kvfik")
 
 [node name="CanvasLayer" parent="." unique_id=58668596 instance=ExtResource("5_321ql")]
 

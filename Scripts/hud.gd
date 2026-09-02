@@ -25,6 +25,14 @@ func _on_character_body_2d_shoot_request_accept() -> void:
 	$ShootingController.charge_time = 0
 
 func _on_character_body_2d_died() -> void:
+	$ShootingController.set_process_input(false)
+	$ShootingController.set_process_unhandled_input(false)
+	$ShootingController.set_physics_process(false)  # if movement happens in _physics_process
+
+
+	set_process_input(false)
+	set_process_unhandled_input(false)
+	set_physics_process(false)  # if movement happens in _physics_process
 	$GameOverText.show()
 	$VBoxContainer/ButtonRetry.show()
 	$VBoxContainer/ButtonTitle.show()
